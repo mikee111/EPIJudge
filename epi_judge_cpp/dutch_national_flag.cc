@@ -7,10 +7,64 @@
 using std::vector;
 enum class Color { kRed, kWhite, kBlue };
 
-void DutchFlagPartition(int pivot_index, vector<Color>* A_ptr) {
-  // TODO - you fill in here.
+void DutchFlagPartition_Lame(int pivot_index, vector<Color>* A_ptr) {
+  
+  std::array<int, 3> num;
+  std::fill(num.begin(), num.end(), 0);
+
+  auto& A = *A_ptr;
+  for (auto& item : A)
+  {
+    ++num[static_cast<int>(item)];
+  }
+
+  int color = 0;
+  int pos = 0;
+  for (auto& item : num)
+  {
+    for (unsigned int i = 0; i < item; ++i,++pos)
+    {
+      A[pos] = static_cast<Color>(color);
+    }
+
+    ++color;
+  }
+
   return;
 }
+
+static int test = 0;
+
+void DutchFlagPartition_STL(int pivot_index, vector<Color>* A_ptr) {
+  auto& A = *A_ptr;
+
+  if (A.size() <= 1)
+  {
+    return;
+  }
+
+  Color p = A[pivot_index];
+
+  auto b = std::partition(A.begin(), A.end(), [&p](const Color& a) {
+    return a <= p;
+    });
+
+	std::partition(A.begin(), b, [&p](const Color& a) {
+		return a < p;
+		});
+
+	return;
+}
+
+void DutchFlagPartition(int pivot_index, vector<Color>* A_ptr) {
+	auto& A = *A_ptr;
+
+  // todo manual
+
+	return;
+}
+
+
 void DutchFlagPartitionWrapper(TimedExecutor& executor, const vector<int>& A,
                                int pivot_idx) {
   vector<Color> colors;
