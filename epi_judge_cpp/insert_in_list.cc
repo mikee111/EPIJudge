@@ -9,7 +9,10 @@ using std::shared_ptr;
 // Insert new_node after node.
 void InsertAfter(const shared_ptr<ListNode<int>>& node,
                  const shared_ptr<ListNode<int>>& new_node) {
-  // TODO - you fill in here.
+  auto oldNext = node->next;
+  node->next = new_node;
+  new_node->next = oldNext;
+
   return;
 }
 shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,

@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <algorithm>
 
 #include "test_framework/generic_test.h"
 #include "test_framework/serialization_traits.h"
@@ -8,22 +9,31 @@ using std::length_error;
 class Stack {
  public:
   bool Empty() const {
-    // TODO - you fill in here.
-    return true;
+    return data.empty();
   }
   int Max() const {
-    // TODO - you fill in here.
-    return 0;
+    return max;
   }
   int Pop() {
-    // TODO - you fill in here.
-    return 0;
+    auto ret = data.back();
+    data.pop_back();
+    maxcache.pop_back();
+    max = maxcache.empty() ? std::numeric_limits<int>::min() : maxcache.back();
+    return ret;
   }
   void Push(int x) {
-    // TODO - you fill in here.
+    data.push_back(x);
+    max = std::max(max, x);
+    maxcache.push_back(max);
     return;
   }
+
+  std::vector<int> data;
+  std::vector<int> maxcache;
+
+  int max = std::numeric_limits<int>::min();
 };
+
 struct StackOp {
   std::string op;
   int argument;

@@ -65,7 +65,7 @@ problem_mapping = {
                 "passed": 0,
                 "total": 10000
             },
-            "Python: closest_int_same_weight.py": { 
+            "Python: closest_int_same_weight.py": {
                 "passed": 0,
                 "total": 10000
             }
@@ -256,7 +256,7 @@ problem_mapping = {
         },
         "5.06 Buy and sell a stock once": {
             "C++: buy_and_sell_stock.cc": {
-                "passed": 0,
+                "passed": 402,
                 "total": 402
             },
             "Java: BuyAndSellStock.java": {
@@ -468,7 +468,7 @@ problem_mapping = {
     "Chapter 06: Strings": {
         "6.00 Bootcamp: Strings": {
             "C++: is_string_palindromic.cc": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Java: IsStringPalindromic.java": {
@@ -482,7 +482,7 @@ problem_mapping = {
         },
         "6.01 Interconvert strings and integers": {
             "C++: string_integer_interconversion.cc": {
-                "passed": 0,
+                "passed": 15002,
                 "total": 15002
             },
             "Java: StringIntegerInterconversion.java": {
@@ -652,15 +652,15 @@ problem_mapping = {
     "Chapter 07: Linked Lists": {
         "7.00 Bootcamp: Linked Lists": {
             "C++: delete_from_list.cc": {
-                "passed": 0,
+                "passed": 457,
                 "total": 457
             },
             "C++: insert_in_list.cc": {
-                "passed": 0,
+                "passed": 504,
                 "total": 504
             },
             "C++: search_in_list.cc": {
-                "passed": 0,
+                "passed": 505,
                 "total": 505
             },
             "Java: DeleteFromList.java": {
@@ -690,7 +690,7 @@ problem_mapping = {
         },
         "7.01 Merge two sorted lists": {
             "C++: sorted_lists_merge.cc": {
-                "passed": 0,
+                "passed": 501,
                 "total": 501
             },
             "Java: SortedListsMerge.java": {
@@ -874,7 +874,7 @@ problem_mapping = {
     "Chapter 08: Stacks and Queues": {
         "8.01 Implement a stack with max API": {
             "C++: stack_with_max.cc": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Java: StackWithMax.java": {
@@ -1002,7 +1002,7 @@ problem_mapping = {
     "Chapter 09: Binary Trees": {
         "9.01 Test if a binary tree is height-balanced": {
             "C++: is_tree_balanced.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: IsTreeBalanced.java": {
@@ -1086,7 +1086,7 @@ problem_mapping = {
         },
         "9.07 Implement an inorder traversal without recursion": {
             "C++: tree_inorder.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: TreeInorder.java": {
@@ -1214,7 +1214,7 @@ problem_mapping = {
     "Chapter 10: Heaps": {
         "10.01 Merge sorted files": {
             "C++: sorted_arrays_merge.cc": {
-                "passed": 0,
+                "passed": 152,
                 "total": 152
             },
             "Java: SortedArraysMerge.java": {

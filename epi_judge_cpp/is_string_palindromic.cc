@@ -3,7 +3,20 @@
 #include "test_framework/generic_test.h"
 using std::string;
 bool IsPalindromic(const string& s) {
-  // TODO - you fill in here.
+  auto l = 0;
+  auto r = s.size() - 1;
+
+  while (l < r)
+  {
+    if (s[l] != s[r])
+    {
+      return false;
+    }
+
+    ++l;
+    --r;
+  }
+
   return true;
 }
 

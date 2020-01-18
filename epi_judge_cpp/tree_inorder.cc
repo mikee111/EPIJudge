@@ -6,9 +6,24 @@
 using std::unique_ptr;
 using std::vector;
 
+void Inorder(const unique_ptr<BinaryTreeNode<int>>& tree, vector<int>& data)
+{
+  if (!tree)
+  {
+    return;
+  }
+  
+  Inorder(tree->left, data);
+  data.push_back(tree->data);
+  Inorder(tree->right, data);  
+}
+
 vector<int> InorderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  // TODO - you fill in here.
-  return {};
+  vector<int> ret;
+
+  Inorder(tree, ret);
+
+  return ret;
 }
 
 int main(int argc, char* argv[]) {
