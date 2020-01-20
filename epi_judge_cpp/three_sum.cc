@@ -3,9 +3,41 @@
 #include "test_framework/generic_test.h"
 using std::vector;
 
+bool HasTwoSum(vector<int>& A, int t)
+{
+  int l = 0, r = A.size() - 1;
+  while (l <= r)
+  {
+    auto res = A[l] + A[r];
+    if (res == t)
+    {
+      return true;
+    }
+    else if (res < t)
+    {
+      ++l;
+    }
+    else
+    {
+      --r;
+    }
+  }
+
+  return false;
+}
+
 bool HasThreeSum(vector<int> A, int t) {
-  // TODO - you fill in here.
-  return true;
+  std::sort(A.begin(), A.end());
+
+  for (auto& k : A)
+  {
+    if (HasTwoSum(A, t - k))
+    {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 int main(int argc, char* argv[]) {

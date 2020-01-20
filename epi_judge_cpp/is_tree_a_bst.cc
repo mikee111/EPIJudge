@@ -4,9 +4,42 @@
 #include "test_framework/generic_test.h"
 using std::unique_ptr;
 
-bool IsBinaryTreeBST(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  // TODO - you fill in here.
+bool Traversal(const unique_ptr<BinaryTreeNode<int>>& tree, int& max)
+{
+  if (!tree)
+  {
+    return true;
+  }
+
+  if (!Traversal(tree->left, max))
+  {
+    return false;
+  }
+
+  if (tree->data < max)
+  {
+    return false;
+  }
+
+  max = tree->data;
+
+  if (!Traversal(tree->right, max))
+  {
+      return false;
+  }
+
   return true;
+}
+
+bool IsBinaryTreeBST(const unique_ptr<BinaryTreeNode<int>>& tree) {
+
+  if (!tree)
+  {
+    return true;
+  }
+
+  int max = std::numeric_limits<int>::min();
+  return Traversal(tree, max);
 }
 
 int main(int argc, char* argv[]) {

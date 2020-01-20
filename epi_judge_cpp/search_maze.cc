@@ -6,8 +6,11 @@
 #include "test_framework/serialization_traits.h"
 #include "test_framework/test_failure.h"
 #include "test_framework/timed_executor.h"
+#include <unordered_map>
+
 using std::vector;
 enum class Color { kWhite, kBlack };
+
 struct Coordinate {
   bool operator==(const Coordinate& that) const {
     return x == that.x && y == that.y;
@@ -15,10 +18,61 @@ struct Coordinate {
 
   int x, y;
 };
+
+bool DFS(vector<vector<Color>>& maze, Coordinate& c, const Coordinate& e, std::vector<Coordinate>& path)
+{
+  if (c == e)
+  {
+    return true;
+  }
+
+  std::array<Coordinate, 4> offsets = { Coordinate{-1,0},Coordinate{1,0},Coordinate{0,-1},Coordinate{0,1} };
+	for(auto& o : offsets)
+  {
+		Coordinate n = { c.x + o.x, c.y + o.y };
+
+		// skip out of bounds
+		if (n.x < 0 || n.y < 0 || n.x >= maze.size() || n.y >= maze[0].size())
+		{
+			continue;
+		}
+
+		// skip walls and visited
+		if (maze[n.x][n.y] == Color::kBlack)
+		{
+			continue;
+		}
+
+    maze[n.x][n.y] = Color::kBlack;
+
+    path.emplace_back(n);
+    if (DFS(maze, n, e, path))
+    {
+      return true;
+    }
+    path.pop_back();
+	}
+
+  return false;
+}
+
 vector<Coordinate> SearchMaze(vector<vector<Color>> maze, const Coordinate& s,
                               const Coordinate& e) {
-  // TODO - you fill in here.
-  return {};
+  if (s == e)
+  {
+    return { s };
+  }
+
+  std::vector<Coordinate> res;
+  Coordinate c = s;
+
+  res.emplace_back(s);
+  if (!DFS(maze, c, e, res))
+  {
+    res.pop_back();
+  }
+
+  return res;
 }
 
 namespace test_framework {

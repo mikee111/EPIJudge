@@ -100,7 +100,7 @@ problem_mapping = {
         },
         "4.07 Compute pow(x,y)": {
             "C++: power_x_y.cc": {
-                "passed": 0,
+                "passed": 10002,
                 "total": 10002
             },
             "Java: PowerXY.java": {
@@ -1456,7 +1456,7 @@ problem_mapping = {
         },
         "12.01 Test for palindromic permutations": {
             "C++: is_string_permutable_to_palindrome.cc": {
-                "passed": 0,
+                "passed": 305,
                 "total": 305
             },
             "Java: IsStringPermutableToPalindrome.java": {
@@ -1470,7 +1470,7 @@ problem_mapping = {
         },
         "12.02 Is an anonymous letter constructible?": {
             "C++: is_anonymous_letter_constructible.cc": {
-                "passed": 0,
+                "passed": 212,
                 "total": 212
             },
             "Java: IsAnonymousLetterConstructible.java": {
@@ -1612,7 +1612,7 @@ problem_mapping = {
     "Chapter 13: Sorting": {
         "13.01 Compute the intersection of two sorted arrays": {
             "C++: intersect_sorted_arrays.cc": {
-                "passed": 0,
+                "passed": 202,
                 "total": 202
             },
             "Java: IntersectSortedArrays.java": {
@@ -1796,7 +1796,7 @@ problem_mapping = {
         },
         "14.01 Test if a binary tree satisfies the BST property": {
             "C++: is_tree_a_bst.cc": {
-                "passed": 0,
+                "passed": 3139,
                 "total": 3139
             },
             "Java: IsTreeABst.java": {
@@ -1966,7 +1966,7 @@ problem_mapping = {
         },
         "15.01 The Towers of Hanoi problem": {
             "C++: hanoi.cc": {
-                "passed": 0,
+                "passed": 10,
                 "total": 10
             },
             "Java: Hanoi.java": {
@@ -2122,11 +2122,11 @@ problem_mapping = {
     "Chapter 16: Dynamic Programming": {
         "16.00 Bootcamp: Dynamic Programming": {
             "C++: fibonacci.cc": {
-                "passed": 0,
+                "passed": 46,
                 "total": 46
             },
             "C++: max_sum_subarray.cc": {
-                "passed": 0,
+                "passed": 1001,
                 "total": 1001
             },
             "Java: Fibonacci.java": {
@@ -2332,7 +2332,7 @@ problem_mapping = {
         },
         "17.01 Compute an optimum assignment of tasks": {
             "C++: task_pairing.cc": {
-                "passed": 0,
+                "passed": 500,
                 "total": 500
             },
             "Java: TaskPairing.java": {
@@ -2386,7 +2386,7 @@ problem_mapping = {
         },
         "17.04 The 3-sum problem": {
             "C++: three_sum.cc": {
-                "passed": 0,
+                "passed": 1008,
                 "total": 1008
             },
             "Java: ThreeSum.java": {
@@ -2458,7 +2458,7 @@ problem_mapping = {
     "Chapter 18: Graphs": {
         "18.01 Search a maze": {
             "C++: search_maze.cc": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Java: SearchMaze.java": {

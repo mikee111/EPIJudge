@@ -1,7 +1,26 @@
 #include "test_framework/generic_test.h"
 double Power(double x, int y) {
-  // TODO - you fill in here.
-  return 0.0;
+  auto res = 1.0;
+  auto mult = x;
+  auto ex = std::abs(y);
+  
+  while (ex)
+  {
+    // active mult?
+    int act = ex & 1;
+
+    if (act)
+    {
+      res *= mult;
+    }
+
+    mult *= mult;
+
+    // remove active
+    ex >>= 1;
+  }
+
+  return y < 0 ? 1.0 / res : res;
 }
 
 int main(int argc, char* argv[]) {

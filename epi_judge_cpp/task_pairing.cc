@@ -11,8 +11,24 @@ struct PairedTasks {
 };
 
 vector<PairedTasks> OptimumTaskAssignment(vector<int> task_durations) {
-  // TODO - you fill in here.
-  return {};
+  vector<PairedTasks> res;
+
+  std::sort(task_durations.begin(), task_durations.end());
+
+  int l = 0, r = task_durations.size() - 1;
+
+  while (l < r)
+  {
+    res.emplace_back(PairedTasks{ task_durations[l], task_durations[r] });
+    ++l; --r;
+  }
+
+  if (l == r)
+  {
+    res.emplace_back(PairedTasks{ task_durations[l], -1});
+  }
+
+  return res;
 }
 
 namespace test_framework {

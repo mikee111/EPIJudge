@@ -10,9 +10,32 @@ using std::array;
 using std::stack;
 using std::vector;
 const int kNumPegs = 3;
+
+using TPair = vector<int>;
+using TRet = vector<TPair>;
+
+void TowerHanoiStep(int left, TRet& ret, int from, int middle, int to)
+{
+  if (left <= 0)
+  {
+    return;
+  }
+
+  TowerHanoiStep(left - 1, ret, from, to, middle);
+  TPair pair;
+  pair.push_back(from);
+  pair.push_back(to);
+  ret.push_back(pair);
+
+  TowerHanoiStep(left - 1, ret, middle, from, to);
+}
+
 vector<vector<int>> ComputeTowerHanoi(int num_rings) {
-  // TODO - you fill in here.
-  return {};
+  TRet ret;
+
+  TowerHanoiStep(num_rings, ret, 0, 1, 2);
+
+  return ret;
 }
 void ComputeTowerHanoiWrapper(TimedExecutor& executor, int num_rings) {
   array<stack<int>, kNumPegs> pegs;
