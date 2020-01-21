@@ -6,10 +6,32 @@
 using std::unique_ptr;
 using std::vector;
 
+void Preorder(vector<vector<int>>& res, const unique_ptr<BinaryTreeNode<int>>& tree, int depth)
+{
+  if (res.size() <= depth)
+  {
+    res.resize(depth+1);
+  }
+
+  res[depth].push_back(tree->data);
+
+  if(tree->left)
+    Preorder(res, tree->left, depth + 1);
+
+  if(tree->right)
+    Preorder(res, tree->right, depth + 1);
+}
+
 vector<vector<int>> BinaryTreeDepthOrder(
     const unique_ptr<BinaryTreeNode<int>>& tree) {
-  // TODO - you fill in here.
-  return {};
+  if (!tree)
+  {
+    return {};
+  }
+
+  vector<vector<int>> res;
+  Preorder(res, tree, 0);
+  return res;
 }
 
 int main(int argc, char* argv[]) {

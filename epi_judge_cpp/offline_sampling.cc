@@ -6,10 +6,22 @@
 #include "test_framework/generic_test.h"
 #include "test_framework/random_sequence_checker.h"
 #include "test_framework/timed_executor.h"
+#include <random>
 using std::bind;
 using std::vector;
 void RandomSampling(int k, vector<int>* A_ptr) {
-  // TODO - you fill in here.
+  auto& A = *A_ptr;
+
+  std::random_device rd;
+  std::mt19937 gen(rd());
+
+  for (auto i = 0; i < k; ++i)
+  {
+    std::uniform_int_distribution<> dis(i, A.size() - 1);
+    auto r = dis(gen);
+    std::swap(A[i], A[r]);
+  }
+
   return;
 }
 bool RandomSamplingRunner(TimedExecutor& executor, int k, vector<int> A) {

@@ -6,9 +6,25 @@
 using std::unique_ptr;
 using std::vector;
 
+void RevInOrder(BstNode<int>* node, vector<int>& res, int k)
+{
+  if (node->right)
+    RevInOrder(node->right.get(),res,k);
+
+  if (res.size() < k)
+  {
+    res.push_back(node->data);
+  }
+
+  if (node->left)
+    RevInOrder(node->left.get(),res,k);
+}
+
 vector<int> FindKLargestInBST(const unique_ptr<BstNode<int>>& tree, int k) {
-  // TODO - you fill in here.
-  return {};
+  
+  vector<int> res;
+  RevInOrder(tree.get(), res, k);
+  return res;
 }
 
 int main(int argc, char* argv[]) {

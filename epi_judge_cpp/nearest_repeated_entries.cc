@@ -2,11 +2,21 @@
 #include <vector>
 
 #include "test_framework/generic_test.h"
+#include <unordered_map>
 using std::string;
 using std::vector;
 
 int FindNearestRepetition(const vector<string>& paragraph) {
-  // TODO - you fill in here.
+  
+  std::unordered_map <string, std::vector<int>> c;
+
+  int i = 0;
+  for (auto& str : paragraph)
+  {
+    c.emplace(str, i);
+    ++i;
+  }
+
   return 0;
 }
 

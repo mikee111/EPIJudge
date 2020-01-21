@@ -6,8 +6,23 @@ using std::unique_ptr;
 
 BstNode<int>* FindFirstGreaterThanK(const unique_ptr<BstNode<int>>& tree,
                                     int k) {
-  // TODO - you fill in here.
-  return nullptr;
+  BstNode<int>* best = nullptr;
+  auto* curr = tree.get();
+
+  while (curr)
+  {
+    if (curr->data > k)
+    {
+      best = curr;
+      curr = curr->left.get();
+    }
+    else
+    {
+      curr = curr->right.get();
+    }
+  }
+
+  return best;
 }
 int FindFirstGreaterThanKWrapper(const unique_ptr<BstNode<int>>& tree, int k) {
   auto result = FindFirstGreaterThanK(tree, k);

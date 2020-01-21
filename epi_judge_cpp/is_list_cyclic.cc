@@ -6,9 +6,45 @@
 #include "test_framework/timed_executor.h"
 using std::shared_ptr;
 
+using TNode = shared_ptr<ListNode<int>>;
+
+bool Advance(TNode& node, int num)
+{
+  for (auto i = 0; i < num; ++i)
+  {
+		if (!node->next)
+		{
+			return false;
+		}
+
+    node = node->next;
+  }
+
+  return true;
+}
+
 shared_ptr<ListNode<int>> HasCycle(const shared_ptr<ListNode<int>>& head) {
-  // TODO - you fill in here.
-  return nullptr;
+  if (!head->next)
+  {
+    return nullptr;
+  }
+
+  int advance = 2;
+  TNode p1 = head, p2 = head->next;
+  while (p1 != p2)
+  {
+    if (!Advance(p1,1))
+    {
+      return nullptr;
+    }
+
+    if (!Advance(p2, advance))
+    {
+      return nullptr;
+    }
+  }
+
+  return p1;
 }
 void HasCycleWrapper(TimedExecutor& executor,
                      const shared_ptr<ListNode<int>>& head, int cycle_idx) {

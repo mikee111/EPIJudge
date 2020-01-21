@@ -340,7 +340,7 @@ problem_mapping = {
         },
         "5.12 Sample offline data": {
             "C++: offline_sampling.cc": {
-                "passed": 0,
+                "passed": 8,
                 "total": 8
             },
             "Java: OfflineSampling.java": {
@@ -424,7 +424,7 @@ problem_mapping = {
         },
         "5.18 Compute the spiral ordering of a 2D array": {
             "C++: spiral_ordering.cc": {
-                "passed": 0,
+                "passed": 51,
                 "total": 51
             },
             "Java: SpiralOrdering.java": {
@@ -496,7 +496,7 @@ problem_mapping = {
         },
         "6.02 Base conversion": {
             "C++: convert_base.cc": {
-                "passed": 0,
+                "passed": 20001,
                 "total": 20001
             },
             "Java: ConvertBase.java": {
@@ -524,7 +524,7 @@ problem_mapping = {
         },
         "6.04 Replace and remove": {
             "C++: replace_and_remove.cc": {
-                "passed": 0,
+                "passed": 501,
                 "total": 501
             },
             "Java: ReplaceAndRemove.java": {
@@ -704,7 +704,7 @@ problem_mapping = {
         },
         "7.02 Reverse a single sublist": {
             "C++: reverse_sublist.cc": {
-                "passed": 0,
+                "passed": 210,
                 "total": 210
             },
             "Java: ReverseSublist.java": {
@@ -718,7 +718,7 @@ problem_mapping = {
         },
         "7.03 Test for cyclicity": {
             "C++: is_list_cyclic.cc": {
-                "passed": 0,
+                "passed": 102,
                 "total": 102
             },
             "Java: IsListCyclic.java": {
@@ -944,7 +944,7 @@ problem_mapping = {
         },
         "8.06 Compute binary tree nodes in order of increasing depth": {
             "C++: tree_level_order.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: TreeLevelOrder.java": {
@@ -1044,7 +1044,7 @@ problem_mapping = {
         },
         "9.04 Compute the LCA when nodes have parent pointers": {
             "C++: lowest_common_ancestor_with_parent.cc": {
-                "passed": 0,
+                "passed": 948,
                 "total": 948
             },
             "Java: LowestCommonAncestorWithParent.java": {
@@ -1256,7 +1256,7 @@ problem_mapping = {
         },
         "10.04 Compute the k closest stars": {
             "C++: k_closest_stars.cc": {
-                "passed": 0,
+                "passed": 51,
                 "total": 51
             },
             "Java: KClosestStars.java": {
@@ -1342,7 +1342,7 @@ problem_mapping = {
         },
         "11.04 Compute the integer square root": {
             "C++: int_square_root.cc": {
-                "passed": 0,
+                "passed": 2000,
                 "total": 2000
             },
             "Java: IntSquareRoot.java": {
@@ -1810,7 +1810,7 @@ problem_mapping = {
         },
         "14.02 Find the first key greater than a given value in a BST": {
             "C++: search_first_greater_value_in_bst.cc": {
-                "passed": 0,
+                "passed": 949,
                 "total": 949
             },
             "Java: SearchFirstGreaterValueInBst.java": {
@@ -1824,7 +1824,7 @@ problem_mapping = {
         },
         "14.03 Find the k largest elements in a BST": {
             "C++: k_largest_values_in_bst.cc": {
-                "passed": 0,
+                "passed": 949,
                 "total": 949
             },
             "Java: KLargestValuesInBst.java": {
