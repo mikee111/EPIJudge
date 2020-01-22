@@ -3,23 +3,90 @@
 #include "test_framework/generic_test.h"
 #include "test_framework/serialization_traits.h"
 #include "test_framework/test_failure.h"
+#include <unordered_map>
+
+using TPrice = int;
+using TISBN = int;
+
+using TLRU = std::list<TISBN>;
+using TLRUIter = TLRU::const_iterator;
+
+struct CacheItem
+{
+	TPrice price;
+	TLRUIter iter;
+};
+
+using TCache = std::unordered_map<TISBN, CacheItem>;
+using TCacheIter = TCache::iterator;
 
 class LruCache {
- public:
-  LruCache(size_t capacity) {}
-  int Lookup(int isbn) {
-    // TODO - you fill in here.
-    return 0;
+  int cacheSize;
+public:  
+  LruCache(size_t capacity) : cacheSize(capacity) {}  
+
+  void MoveUp(TCacheIter& iter)
+  {
+		lru.erase(iter->second.iter);
+		lru.push_front(iter->first);
+		iter->second.iter = lru.begin();
   }
-  void Insert(int isbn, int price) {
-    // TODO - you fill in here.
+
+  void TryReduceCache()
+  {
+    if (lru.size() > cacheSize)
+    {
+      auto& isbn = lru.back();
+      cache.erase(isbn);
+      lru.pop_back();
+    }
+  }
+
+  int Lookup(TISBN isbn) {
+    
+    auto iter = cache.find(isbn);
+    if (iter != cache.end())
+    {
+      lru.erase(iter->second.iter);
+      lru.push_front(iter->first);
+      iter->second.iter = lru.begin();
+      return iter->second.price;
+    }
+
+    return -1;
+  }
+  void Insert(TISBN isbn, TPrice price) {
+    auto iter = cache.find(isbn);
+    if (iter != cache.end())
+    {
+      MoveUp(iter);
+    }
+    else
+    {
+      lru.push_front(isbn);
+      cache.emplace(isbn, CacheItem{ price,lru.begin() });
+      TryReduceCache();
+    }
+
     return;
   }
-  bool Erase(int isbn) {
-    // TODO - you fill in here.
-    return true;
+  bool Erase(TISBN isbn) {
+    auto iter = cache.find(isbn);
+    if(iter != cache.end())
+    {
+      lru.erase(iter->second.iter);
+      cache.erase(iter);
+      return true;
+    }
+
+    return false;
   }
+
+private:
+  TCache cache;
+  TLRU lru;
 };
+
 struct Op {
   std::string code;
   int arg1;

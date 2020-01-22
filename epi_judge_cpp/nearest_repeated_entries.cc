@@ -8,16 +8,29 @@ using std::vector;
 
 int FindNearestRepetition(const vector<string>& paragraph) {
   
-  std::unordered_map <string, std::vector<int>> c;
+  // name -> (last_occurence)
+  std::unordered_map <string, int> c;
+  int minlen = std::numeric_limits<int>::max();
 
   int i = 0;
   for (auto& str : paragraph)
   {
-    c.emplace(str, i);
+    auto iter = c.find(str);
+    if (iter != c.end())
+    {
+      int len = i - iter->second;
+      minlen = std::min(len, minlen);
+      iter->second = i;
+    }
+    else
+    {
+      c.emplace(str, i);
+    }
+    
     ++i;
   }
 
-  return 0;
+  return minlen == std::numeric_limits<int>::max() ? -1 : minlen;
 }
 
 int main(int argc, char* argv[]) {

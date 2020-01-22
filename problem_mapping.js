@@ -1484,7 +1484,7 @@ problem_mapping = {
         },
         "12.03 Implement an ISBN cache": {
             "C++: lru_cache.cc": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Java: LruCache.java": {
@@ -1512,7 +1512,7 @@ problem_mapping = {
         },
         "12.05 Find the nearest repeated entries in an array": {
             "C++: nearest_repeated_entries.cc": {
-                "passed": 0,
+                "passed": 505,
                 "total": 505
             },
             "Java: NearestRepeatedEntries.java": {
@@ -1626,7 +1626,7 @@ problem_mapping = {
         },
         "13.02 Merge two sorted arrays": {
             "C++: two_sorted_arrays_merge.cc": {
-                "passed": 0,
+                "passed": 201,
                 "total": 201
             },
             "Java: TwoSortedArraysMerge.java": {
@@ -1994,7 +1994,7 @@ problem_mapping = {
         },
         "15.03 Generate all nonattacking placements of n-Queens": {
             "C++: n_queens.cc": {
-                "passed": 0,
+                "passed": 10,
                 "total": 10
             },
             "Java: NQueens.java": {
@@ -2162,7 +2162,7 @@ problem_mapping = {
         },
         "16.02 Compute the Levenshtein distance": {
             "C++: levenshtein_distance.cc": {
-                "passed": 0,
+                "passed": 100,
                 "total": 100
             },
             "Java: LevenshteinDistance.java": {
@@ -2414,7 +2414,7 @@ problem_mapping = {
         },
         "17.06 The gasup problem": {
             "C++: refueling_schedule.cc": {
-                "passed": 0,
+                "passed": 202,
                 "total": 202
             },
             "Java: RefuelingSchedule.java": {
