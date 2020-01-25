@@ -1,21 +1,50 @@
 #include "test_framework/generic_test.h"
 #include "test_framework/serialization_traits.h"
 #include "test_framework/test_failure.h"
+#include <algorithm>
 class Queue {
  public:
-  Queue(size_t capacity) {}
+  Queue(size_t capacity) 
+  {
+    data.resize(capacity);
+  }
+
   void Enqueue(int x) {
-    // TODO - you fill in here.
-    return;
+    if (num == data.size())
+    {
+      std::rotate(data.begin(), data.begin() + top, data.end());
+      top = 0; bottom = num;
+      data.resize(data.size() + 1);
+      data[bottom] = x;
+    }
+
+    data[bottom] = x;
+    bottom = (bottom - 1) % data.size();
+
+    ++num;
   }
+
   int Dequeue() {
-    // TODO - you fill in here.
-    return 0;
+    if (num == 0)
+    {
+      return -1;
+    }
+
+    auto ret = data[top];
+    top = (top + 1) % data.size();
+    
+    --num;
+    return ret;
   }
+
   int Size() const {
-    // TODO - you fill in here.
-    return 0;
+    return num;
   }
+
+  std::vector<int> data;
+  int top = 0;
+  int bottom = 0;
+  int num = 0;
 };
 struct QueueOp {
   enum class Operation { kConstruct, kDequeue, kEnqueue, kSize } op;

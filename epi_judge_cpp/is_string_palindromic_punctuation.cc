@@ -1,9 +1,40 @@
 #include <string>
 
 #include "test_framework/generic_test.h"
+#include <locale>
 using std::string;
+
+bool IsAlpha(char c)
+{
+  return std::isalnum(c);
+}
+
+void SkipNonAlphas(int& l, int& r, const string& s)
+{
+  while (l < r && !IsAlpha(s[l]))
+    ++l;
+
+	while (l < r && !IsAlpha(s[r]))
+		--r;
+}
+
 bool IsPalindrome(const string& s) {
-  // TODO - you fill in here.
+  int l = 0;
+  int r = s.size() - 1;
+
+  SkipNonAlphas(l, r, s);
+
+  while (l < r)
+  {
+    if (std::tolower(s[l]) != std::tolower(s[r]))
+      return false;
+
+    ++l;
+    --r;
+
+    SkipNonAlphas(l, r, s);
+  }
+
   return true;
 }
 
